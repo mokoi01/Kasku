@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KasKu - Dashboard Kelas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <div class="logo-sidebar">
+        <h2>💰 KasKu</h2>
+        <p id="label-kelas-sidebar">Kelas XII-A</p>
+      </div>
+      <div class="nav-group">
+        <div class="nav-label">Menu Utama</div>
+        <button class="nav-btn aktif" onclick="tampilSub('sub-ringkasan', this)">📊 Ringkasan</button>
+        <button class="nav-btn" onclick="tampilSub('sub-iuran', this)">✅ Input Iuran</button>
+        <button class="nav-btn" onclick="tampilSub('sub-pengeluaran', this)">🛒 Pengeluaran</button>
+        <button class="nav-btn" onclick="tampilSub('sub-riwayat', this)">📋 Riwayat</button>
+      </div>
+      <div class="nav-group">
+        <div class="nav-label">Lainnya</div>
+        <button class="nav-btn" onclick="tampilSub('sub-siswa', this)">👤 Data Siswa</button>
+      </div>
+      <div class="sidebar-bawah">
+        <div class="user-info">
+          <div class="user-avatar">👤</div>
+          <div>
+            <div class="user-nama" id="nama-user-sidebar">Pengguna Kelas</div>
+            <div class="user-role" id="role-sidebar">XII-A</div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="konten-utama">
+      <div class="topbar">
+        <h3 id="judul-topbar">Ringkasan Kas</h3>
+        <div class="topbar-kanan">
+          <button class="btn btn-abu btn-sm" onclick="window.location.href='pilih_kelas.html'">← Ganti Kelas</button>
+        </div>
+      </div>
+
+      <div id="sub-ringkasan" class="isi">
+        <p style="font-size:12px;color:var(--abu-tua);margin-bottom:16px">Minggu ini · 13–18 Januari 2025</p>
+        <div class="baris-stat">
+          <div class="stat-kartu biru">
+            <div class="stat-ikon">💰</div>
+            <div class="stat-label">Saldo Sekarang</div>
+            <div class="stat-nilai">Rp 847.000</div>
+            <div class="stat-catatan naik">↑ +90rb minggu ini</div>
+          </div>
+          <div class="stat-kartu hijau">
+            <div class="stat-ikon">✅</div>
+            <div class="stat-label">Sudah Bayar</div>
+            <div class="stat-nilai">32 / 37</div>
+            <div class="stat-catatan naik">87% lunas</div>
+          </div>
+          <div class="stat-kartu merah">
+            <div class="stat-ikon">⏳</div>
+            <div class="stat-label">Belum Bayar</div>
+            <div class="stat-nilai">5 Siswa</div>
+            <div class="stat-catatan turun">Minggu ini</div>
+          </div>
+        </div>
+
+        <div class="baris">
+          <div class="kol-7">
+            <div class="kartu">
+              <h4>Transaksi Terakhir</h4>
+              <div class="trx-item">
+                <div class="trx-ikon" style="background:var(--hijau-muda)">💵</div>
+                <div class="trx-info"><div class="trx-nama">Iuran — Ahmad Rizky</div><div class="trx-tgl">Senin, 13 Jan</div></div>
+                <div class="trx-nominal" style="color:var(--hijau)">+30.000</div>
+              </div>
+              <div class="trx-item">
+                <div class="trx-ikon" style="background:var(--merah-muda)">🛒</div>
+                <div class="trx-info"><div class="trx-nama">Alat kebersihan</div><div class="trx-tgl">Selasa, 14 Jan</div></div>
+                <div class="trx-nominal" style="color:var(--merah)">−85.000</div>
+              </div>
+              <div class="trx-item">
+                <div class="trx-ikon" style="background:var(--hijau-muda)">💵</div>
+                <div class="trx-info"><div class="trx-nama">Iuran — Siti Rahayu</div><div class="trx-tgl">Rabu, 15 Jan</div></div>
+                <div class="trx-nominal" style="color:var(--hijau)">+30.000</div>
+              </div>
+              <div class="trx-item">
+                <div class="trx-ikon" style="background:var(--merah-muda)">🛒</div>
+                <div class="trx-info"><div class="trx-nama">Snack rapat kelas</div><div class="trx-tgl">Kamis, 16 Jan</div></div>
+                <div class="trx-nominal" style="color:var(--merah)">−120.000</div>
+              </div>
+              <button class="btn btn-abu btn-sm" style="width:100%;margin-top:10px" onclick="tampilSub('sub-riwayat',null)">Lihat semua →</button>
+            </div>
+          </div>
+          <div class="kol-5">
+            <div class="kartu">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+                <h4 style="margin:0">⚠️ Belum Bayar</h4>
+                <button class="btn btn-biru btn-sm" onclick="tampilSub('sub-iuran',null)">Input →</button>
+              </div>
+              <div style="display:flex;gap:8px;flex-wrap:wrap">
+                <span style="background:var(--merah-muda);color:#b91c1c;font-size:12px;font-weight:600;padding:5px 12px;border-radius:8px">03 · Candra W.</span>
+                <span style="background:var(--merah-muda);color:#b91c1c;font-size:12px;font-weight:600;padding:5px 12px;border-radius:8px">06 · Fira N.</span>
+                <span style="background:var(--merah-muda);color:#b91c1c;font-size:12px;font-weight:600;padding:5px 12px;border-radius:8px">09 · Irfan M.</span>
+                <span style="background:var(--merah-muda);color:#b91c1c;font-size:12px;font-weight:600;padding:5px 12px;border-radius:8px">11 · Kartika</span>
+                <span style="background:var(--merah-muda);color:#b91c1c;font-size:12px;font-weight:600;padding:5px 12px;border-radius:8px">13 · Maya S.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="sub-iuran" class="isi" style="display:none">
+        <p style="font-size:12px;color:var(--abu-tua);margin-bottom:14px">Klik tombol buat tandai lunas 😄</p>
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px">
+          <div class="nav-minggu">
+            <button class="nav-minggu-btn">‹</button>
+            <span>Minggu ke-3 · 13–18 Jan 2025</span>
+            <button class="nav-minggu-btn">›</button>
+          </div>
+          <div style="display:flex;gap:8px">
+            <button class="btn btn-hijau btn-sm" onclick="cekSemua()">✓ Semua Lunas</button>
+            <button class="btn btn-abu btn-sm" onclick="resetSemua()">✕ Reset</button>
+          </div>
+        </div>
+
+        <div class="progress-minggu">
+          <div class="label">Progress bayar minggu ini:</div>
+          <div style="flex:1"><div class="progress-bar"><div class="progress-isi" id="prog-minggu" style="width:86%"></div></div></div>
+          <div class="angka" id="angka-minggu">32 / 37 lunas</div>
+        </div>
+
+        <div class="keterangan-cek">
+          <div class="ket-item"><div class="ket-kotak" style="background:var(--hijau)"></div>Lunas ✓</div>
+          <div class="ket-item"><div class="ket-kotak" style="background:var(--abu);border:1.5px solid var(--border)"></div>Belum Bayar</div>
+          <div style="margin-left:auto;font-size:11px;color:var(--abu-tua)">Klik = Toggle Lunas</div>
+        </div>
+
+        <div class="tabel-wrap">
+          <table class="checklist-tabel">
+            <thead>
+              <tr>
+                <th style="width:36px">#</th>
+                <th>Nama Siswa</th>
+                <th class="hari">Sen 13</th>
+                <th class="hari">Sel 14</th>
+                <th class="hari">Rab 15</th>
+                <th class="hari">Kam 16</th>
+                <th class="hari">Jum 17</th>
+                <th style="width:80px;text-align:center">Total</th>
+              </tr>
+            </thead>
+            <tbody id="isi-checklist"></tbody>
+          </table>
+        </div>
+
+        <div class="info-box info-biru" style="margin-top:12px">
+          💡 <strong>Info:</strong> Data tersimpan otomatis setiap kali kamu klik.
+        </div>
+      </div>
+
+      <div id="sub-pengeluaran" class="isi" style="display:none">
+        <div class="baris">
+          <div class="kol-6">
+            <div class="kartu">
+              <h4>📝 Catat Pengeluaran Baru</h4>
+              <div class="form-group"><label>Nama Pengeluaran</label><input type="text" value="Beli spidol & penghapus papan tulis"></div>
+              <div class="kolom-3">
+                <div class="form-group"><label>Jumlah (Rp)</label><input type="number" value="85000"></div>
+                <div class="form-group"><label>Tanggal</label><input type="date" value="2025-01-14"></div>
+                <div class="form-group"><label>Kategori</label>
+                  <select>
+                    <option>Perlengkapan Kelas</option>
+                    <option>Konsumsi</option>
+                    <option>Acara / Event</option>
+                    <option>Donasi / Sosial</option>
+                    <option>Lainnya</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group"><label>Keterangan (opsional)</label><textarea>4 spidol marker dan 1 penghapus</textarea></div>
+              <div class="form-aksi">
+                <button class="btn btn-abu">Reset</button>
+                <button class="btn btn-biru">💾 Simpan</button>
+              </div>
+            </div>
+          </div>
+          <div class="kol-6">
+            <div class="kartu">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+                <h4 style="margin:0">Pengeluaran Bulan Ini</h4>
+                <span class="badge badge-merah">Total: Rp 263.000</span>
+              </div>
+              <div class="tabel-wrap">
+                <table>
+                  <thead><tr><th>Tanggal</th><th>Keterangan</th><th>Kategori</th><th>Jumlah</th></tr></thead>
+                  <tbody>
+                    <tr>
+                      <td style="color:var(--abu-tua);font-size:12px">14 Jan</td>
+                      <td style="font-weight:600">Alat kebersihan</td>
+                      <td><span class="badge badge-biru">Perlengkapan</span></td>
+                      <td style="font-weight:700;color:var(--merah)">−85.000</td>
+                    </tr>
+                    <tr>
+                      <td style="color:var(--abu-tua);font-size:12px">16 Jan</td>
+                      <td style="font-weight:600">Snack rapat kelas</td>
+                      <td><span class="badge badge-kuning">Konsumsi</span></td>
+                      <td style="font-weight:700;color:var(--merah)">−120.000</td>
+                    </tr>
+                    <tr>
+                      <td style="color:var(--abu-tua);font-size:12px">8 Jan</td>
+                      <td style="font-weight:600">Print soal latihan</td>
+                      <td><span class="badge badge-biru">Perlengkapan</span></td>
+                      <td style="font-weight:700;color:var(--merah)">−58.000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="sub-riwayat" class="isi" style="display:none">
+        <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap">
+          <input type="text" placeholder="🔍 Cari transaksi..." style="padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;outline:none;width:200px">
+          <select style="padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;outline:none;color:var(--teks)">
+            <option>Semua</option><option>Pemasukan</option><option>Pengeluaran</option>
+          </select>
+          <select style="padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;outline:none;color:var(--teks)">
+            <option>Januari 2025</option><option>Desember 2024</option>
+          </select>
+        </div>
+        <div class="tabel-wrap">
+          <table>
+            <thead><tr><th>Tanggal</th><th>Keterangan</th><th>Jenis</th><th>Jumlah</th><th>Saldo</th></tr></thead>
+            <tbody>
+              <tr>
+                <td style="color:var(--abu-tua);font-size:12px;white-space:nowrap">Senin, 13 Jan</td>
+                <td><div style="font-weight:600">Iuran Mg-3 — Ahmad Rizky</div><div style="font-size:11px;color:var(--abu-tua)">No. absen 01</div></td>
+                <td><span class="badge badge-hijau">Pemasukan</span></td>
+                <td style="font-weight:700;color:var(--hijau)">+Rp 30.000</td>
+                <td style="font-weight:600">Rp 847.000</td>
+              </tr>
+              <tr>
+                <td style="color:var(--abu-tua);font-size:12px;white-space:nowrap">Selasa, 14 Jan</td>
+                <td><div style="font-weight:600">Alat Kebersihan</div></td>
+                <td><span class="badge badge-merah">Pengeluaran</span></td>
+                <td style="font-weight:700;color:var(--merah)">−Rp 85.000</td>
+                <td style="font-weight:600">Rp 817.000</td>
+              </tr>
+              <tr>
+                <td style="color:var(--abu-tua);font-size:12px;white-space:nowrap">Rabu, 15 Jan</td>
+                <td><div style="font-weight:600">Iuran Mg-3 — Siti Rahayu</div><div style="font-size:11px;color:var(--abu-tua)">No. absen 02</div></td>
+                <td><span class="badge badge-hijau">Pemasukan</span></td>
+                <td style="font-weight:700;color:var(--hijau)">+Rp 30.000</td>
+                <td style="font-weight:600">Rp 902.000</td>
+              </tr>
+              <tr>
+                <td style="color:var(--abu-tua);font-size:12px;white-space:nowrap">Kamis, 16 Jan</td>
+                <td><div style="font-weight:600">Snack Rapat Kelas</div><div style="font-size:11px;color:var(--abu-tua)">Musyawarah semester genap</div></td>
+                <td><span class="badge badge-merah">Pengeluaran</span></td>
+                <td style="font-weight:700;color:var(--merah)">−Rp 120.000</td>
+                <td style="font-weight:600">Rp 872.000</td>
+              </tr>
+              <tr>
+                <td style="color:var(--abu-tua);font-size:12px;white-space:nowrap">Jumat, 17 Jan</td>
+                <td><div style="font-weight:600">Iuran Mg-3 — Budi Santoso</div><div style="font-size:11px;color:var(--abu-tua)">No. absen 04</div></td>
+                <td><span class="badge badge-hijau">Pemasukan</span></td>
+                <td style="font-weight:700;color:var(--hijau)">+Rp 30.000</td>
+                <td style="font-weight:600">Rp 992.000</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="sub-siswa" class="isi" style="display:none">
+        <div class="info-box info-biru" style="margin-bottom:14px">
+          📋 Data siswa cukup diisi sekali di awal tahun. Gak perlu update tiap hari!
+        </div>
+        <div style="display:flex;gap:8px;margin-bottom:14px;align-items:center">
+          <input type="text" placeholder="🔍 Cari nama..." style="padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-family:'Poppins',sans-serif;font-size:13px;outline:none;width:200px">
+          <div style="margin-left:auto;display:flex;gap:8px">
+            <button class="btn btn-abu btn-sm">📥 Import CSV</button>
+            <button class="btn btn-biru btn-sm">+ Tambah Siswa</button>
+          </div>
+        </div>
+        <div class="tabel-wrap">
+          <table>
+            <thead><tr><th>#</th><th>Nama Siswa</th><th>Total Bayar</th><th>Minggu Aktif</th><th>Terakhir Bayar</th><th>Status</th><th></th></tr></thead>
+            <tbody>
+              <tr>
+                <td class="no-absen">01</td><td class="nama-siswa">Ahmad Rizky Fadhila</td>
+                <td style="font-weight:700;color:var(--hijau)">Rp 390.000</td>
+                <td style="color:var(--abu-tua)">13 / 13</td>
+                <td style="color:var(--abu-tua);font-size:12px">Senin, 13 Jan</td>
+                <td><span class="badge badge-hijau">Rajin Bayar</span></td>
+                <td><button class="btn btn-abu btn-sm">Edit</button></td>
+              </tr>
+              <tr>
+                <td class="no-absen">02</td><td class="nama-siswa">Bella Aulia Sari</td>
+                <td style="font-weight:700;color:var(--hijau)">Rp 360.000</td>
+                <td style="color:var(--abu-tua)">12 / 13</td>
+                <td style="color:var(--abu-tua);font-size:12px">Rabu, 15 Jan</td>
+                <td><span class="badge badge-hijau">Rajin Bayar</span></td>
+                <td><button class="btn btn-abu btn-sm">Edit</button></td>
+              </tr>
+              <tr style="background:var(--merah-muda)">
+                <td class="no-absen">03</td><td class="nama-siswa">Candra Wijaya</td>
+                <td style="font-weight:700;color:var(--merah)">Rp 180.000</td>
+                <td style="color:var(--abu-tua)">6 / 13</td>
+                <td style="color:var(--abu-tua);font-size:12px">Des 2024</td>
+                <td><span class="badge badge-merah">Sering Nunggak</span></td>
+                <td><button class="btn btn-abu btn-sm">Edit</button></td>
+              </tr>
+              <tr>
+                <td class="no-absen">04</td><td class="nama-siswa">Desi Kartika</td>
+                <td style="font-weight:700;color:var(--hijau)">Rp 390.000</td>
+                <td style="color:var(--abu-tua)">13 / 13</td>
+                <td style="color:var(--abu-tua);font-size:12px">Jumat, 17 Jan</td>
+                <td><span class="badge badge-hijau">Rajin Bayar</span></td>
+                <td><button class="btn btn-abu btn-sm">Edit</button></td>
+              </tr>
+              <tr>
+                <td class="no-absen">05</td><td class="nama-siswa">Eko Prasetyo</td>
+                <td style="font-weight:700;color:var(--kuning)">Rp 330.000</td>
+                <td style="color:var(--abu-tua)">11 / 13</td>
+                <td style="color:var(--abu-tua);font-size:12px">Jumat, 17 Jan</td>
+                <td><span class="badge badge-kuning">Kadang Telat</span></td>
+                <td><button class="btn btn-abu btn-sm">Edit</button></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div style="margin-top:10px;font-size:12px;color:var(--abu-tua);text-align:center">Menampilkan 5 dari 37 siswa</div>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/dashboard.js"></script>
+</body>
+</html>

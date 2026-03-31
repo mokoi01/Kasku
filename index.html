@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KasKu - Login</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="login-wrap">
+    <div class="login-card">
+      <div class="login-logo">
+        <h1>💰 KasKu</h1>
+        <p>Sistem Kas Kelas Digital</p>
+      </div>
+
+      <div id="view-login">
+        <div id="form-login-dinamis">
+          <div class="login-judul" id="judul-login">Masuk sebagai Bendahara</div>
+          <div class="login-sub" id="sub-login">Gunakan akun bendahara kelas</div>
+          
+          <div class="form-group">
+            <label>Username</label>
+            <div class="login-input-wrap icon">
+              <span class="login-icon">👤</span>
+              <input type="text" id="inp-user" placeholder="Masukkan username" value="bendahara">
+            </div>
+          </div>
+          <div class="form-group" style="margin-bottom:6px">
+            <label>Password</label>
+            <div class="login-input-wrap icon">
+              <span class="login-icon">🔒</span>
+              <input type="password" id="inp-pass" placeholder="Masukkan password" value="bendahara123">
+            </div>
+          </div>
+          
+          <div class="login-error" id="login-error"></div>
+          <button class="btn-login" onclick="prosesLogin()">Masuk</button>
+          
+          <div style="text-align:center; margin-top: 14px; font-size: 12px; color: var(--abu-tua);">
+            Belum punya akun? <span style="font-weight: 600; color: var(--biru); cursor:pointer;" onclick="toggleAuth('register')">Daftar di sini</span>
+          </div>
+
+          <div class="login-divider">Opsi Login Lain</div>
+          
+          <div style="display:flex; flex-direction:column; gap:8px;" id="opsi-login">
+            <button class="link-btn" onclick="gantiRole('admin')">🛡️ Login sebagai Admin</button>
+            <button class="link-btn" onclick="gantiRole('wali')">👨‍🏫 Login sebagai Wali Kelas</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="view-register" style="display:none;">
+        <div class="login-judul">Daftar Akun Baru</div>
+        <div class="login-sub">Buat akun untuk mengelola kas kelas</div>
+        
+        <div class="form-group">
+          <label>Nama Lengkap</label>
+          <div class="login-input-wrap icon">
+            <span class="login-icon">📝</span>
+            <input type="text" id="reg-nama" placeholder="Masukkan nama lengkap">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Username</label>
+          <div class="login-input-wrap icon">
+            <span class="login-icon">👤</span>
+            <input type="text" id="reg-user" placeholder="Buat username unik">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Password</label>
+          <div class="login-input-wrap icon">
+            <span class="login-icon">🔒</span>
+            <input type="password" id="reg-pass" placeholder="Buat password">
+          </div>
+        </div>
+        <div class="form-group" style="margin-bottom:6px">
+          <label>Daftar Sebagai</label>
+          <div class="login-input-wrap icon">
+            <span class="login-icon">🎓</span>
+            <select id="reg-role">
+              <option value="bendahara">Bendahara Kelas</option>
+              <option value="wali">Wali Kelas</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="login-error" id="register-error"></div>
+        <button class="btn-login" onclick="prosesRegister()">Daftar & Masuk</button>
+        
+        <div style="text-align:center; margin-top: 14px; font-size: 12px; color: var(--abu-tua);">
+          Sudah punya akun? <span style="font-weight: 600; color: var(--biru); cursor:pointer;" onclick="toggleAuth('login')">Masuk di sini</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="js/auth.js"></script>
+</body>
+</html>

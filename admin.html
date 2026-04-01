@@ -9,26 +9,29 @@
 </head>
 <body>
   <div class="layout">
-    <nav class="sidebar">
-      <div class="logo-sidebar">
-        <h2 style="color:var(--abu-tua)">🛡️ Admin</h2>
-        <p>Panel Admin Sekolah</p>
-      </div>
-      <div class="nav-group">
-        <div class="nav-label">Menu Admin</div>
-        <button class="nav-btn aktif" onclick="tampilAdmin('adm-pin', this)">🔐 Kelola PIN</button>
-      </div>
-      <div class="user-nama" id="nama-user-sidebar">Admin Sekolah</div>
-        <div style="margin-bottom:8px">
-          <button class="btn btn-abu btn-sm" style="width:100%" onclick="window.location.href='index.html'">← Keluar</button>
+    <nav class="sidebar" style="display: flex; flex-direction: column; justify-content: space-between;">
+      <div>
+        <div class="logo-sidebar">
+          <h2 style="color:var(--abu-tua)">🛡️ Admin</h2>
+          <p>Panel Admin Sekolah</p>
         </div>
-        <div class="user-info" style="background:var(--biru-muda)">
-          <div class="user-avatar" style="background:var(--biru-muda)">🛡️</div>
+        <div class="nav-group">
+          <div class="nav-label">Menu Admin</div>
+          <button class="nav-btn aktif" onclick="tampilAdmin('adm-pin', this)">🔐 Kelola PIN</button>
+        </div>
+      </div>
+
+      <div class="sidebar-footer" style="margin-top: auto;">
+        <div class="user-info" style="background:var(--biru-muda); margin-bottom: 12px; display: flex; align-items: center; gap: 10px; padding: 12px; border-radius: 8px;">
+          <div class="user-avatar" style="background:transparent; font-size: 20px;">🛡️</div>
           <div>
-            <div class="user-nama">Admin Sekolah</div>
-            <div class="user-role">Kelola PIN Kelas</div>
+            <div class="user-nama" style="font-weight: 600; font-size: 14px;">Admin Sekolah</div>
+            <div class="user-role" style="font-size: 12px; color: var(--abu-tua);">Kelola PIN Kelas</div>
           </div>
         </div>
+        <button class="btn btn-abu btn-sm" style="width:100%; text-align: center; font-weight: 600;" onclick="window.location.href='index.html'">
+          ← Keluar
+        </button>
       </div>
     </nav>
 

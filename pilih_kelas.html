@@ -2,92 +2,64 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KasKu - Pilih Kelas</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Pilih Kelas</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body style="display:block">
-  
-  <div class="modal-bg" id="modal-pin">
-    <div class="modal">
-      <div class="modal-ikon">🔐</div>
-      <h3 id="pin-judul">Masuk ke XII-A</h3>
-      <p>Masukkan PIN 4 angka kelas kamu</p>
-      <div class="pin-dots">
-        <div class="pin-dot" id="d1"></div>
-        <div class="pin-dot" id="d2"></div>
-        <div class="pin-dot" id="d3"></div>
-        <div class="pin-dot" id="d4"></div>
-      </div>
-      <div class="pin-error" id="pin-error"></div>
-      <div class="numpad">
-        <button class="numpad-btn" onclick="pinAngka('1')">1</button>
-        <button class="numpad-btn" onclick="pinAngka('2')">2</button>
-        <button class="numpad-btn" onclick="pinAngka('3')">3</button>
-        <button class="numpad-btn" onclick="pinAngka('4')">4</button>
-        <button class="numpad-btn" onclick="pinAngka('5')">5</button>
-        <button class="numpad-btn" onclick="pinAngka('6')">6</button>
-        <button class="numpad-btn" onclick="pinAngka('7')">7</button>
-        <button class="numpad-btn" onclick="pinAngka('8')">8</button>
-        <button class="numpad-btn" onclick="pinAngka('9')">9</button>
-        <button class="numpad-btn hapus" onclick="pinHapus()">⌫</button>
-        <button class="numpad-btn nol" onclick="pinAngka('0')">0</button>
-      </div>
-      <button class="btn btn-abu" style="width:100%;margin-top:8px" onclick="tutupPin()">Batal</button>
+<body>
+
+<h2>Pilih Kelas</h2>
+
+<!-- LIST KELAS -->
+<div class="kelas-list">
+
+  <button onclick="bukaPin(1, 'RPL 1')">X RPL 1</button>
+  <button onclick="bukaPin(2, 'RPL 2')">X RPL 2</button>
+  <button onclick="bukaPin(3, 'RPL 3')">X RPL 3</button>
+
+</div>
+
+<!-- MODAL PIN -->
+<div id="modal-pin" class="modal-bg">
+
+  <div class="modal-content">
+    
+    <h3 id="pin-judul">Masuk Kelas</h3>
+
+    <!-- DOT PIN -->
+    <div class="pin-dots">
+      <span id="d1" class="pin-dot"></span>
+      <span id="d2" class="pin-dot"></span>></span>
+      <span id="d3" class="pin-dot"></span>></span>
+      <span id="d4" class="pin-dot"></span>></span>
     </div>
+
+    <!-- ERROR -->
+    <div id="pin-error" style="color:red; margin-top:10px;"></div>
+
+    <!-- KEYPAD -->
+    <div class="numpad">
+      <button class="numpad-btn" onclick="pinAngka(1)">1</button>
+      <button class="numpad-btn" onclick="pinAngka(2)">2</button>
+      <button class="numpad-btn" onclick="pinAngka(3)">3</button>
+
+      <button class="numpad-btn" onclick="pinAngka(4)">4</button>
+      <button class="numpad-btn" onclick="pinAngka(5)">5</button>
+      <button class="numpad-btn" onclick="pinAngka(6)">6</button>
+
+      <button class="numpad-btn" onclick="pinAngka(7)">7</button>
+      <button class="numpad-btn" onclick="pinAngka(8)">8</button>
+      <button class="numpad-btn" onclick="pinAngka(9)">9</button>
+
+      <button class="numpad-btn" onclick="tutupPin()">❌</button>
+      <button class="numpad-btn" onclick="pinAngka(0)">0</button>
+      <button class="numpad-btn" onclick="pinHapus()">⌫</button>
+    </div>
+
   </div>
 
-  <div class="home-wrap">
-    <div class="home-header">
-      <h1>💰 KasKu</h1>
-      <p>Sistem Kas Kelas Digital — Pilih kelas untuk masuk</p>
-    </div>
+</div>
 
-    <div class="home-body">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:18px">
-        <span style="font-size:13px;font-weight:600;color:var(--abu-tua)" id="teks-selamat-datang">👋 Halo, Selamat Datang!</span>
-        <button class="btn btn-abu btn-sm" onclick="window.location.href='index.html'">← Keluar</button>
-      </div>
+<script src="pin.js"></script>
 
-      <div class="angkatan-judul">Kelas XII</div>
-      <div class="grid-kelas">
-        <div class="kartu-kelas" onclick="bukaPin('XII-A')"><div class="kunci">🔒</div><div class="nama-kelas">XII-A</div><div class="jurusan">RPL</div></div>
-        <div class="kartu-kelas" onclick="bukaPin('XII-B')"><div class="kunci">🔒</div><div class="nama-kelas">XII-B</div><div class="jurusan">TKJ</div></div>
-        <div class="kartu-kelas" onclick="bukaPin('XII-C')"><div class="kunci">🔒</div><div class="nama-kelas">XII-C</div><div class="jurusan">AKL</div></div>
-        <div class="kartu-kelas" onclick="bukaPin('XII-D')"><div class="kunci">🔒</div><div class="nama-kelas">XII-D</div><div class="jurusan">BDP</div></div>
-      </div>
-
-      <div class="angkatan-judul">Kelas XI</div>
-      <div class="grid-kelas">
-        <div class="kartu-kelas" onclick="bukaPin('XI-A')"><div class="kunci">🔒</div><div class="nama-kelas">XI-A</div><div class="jurusan">RPL</div></div>
-        <div class="kartu-kelas" onclick="bukaPin('XI-B')"><div class="kunci">🔒</div><div class="nama-kelas">XI-B</div><div class="jurusan">TKJ</div></div>
-        <div class="kartu-kelas" onclick="bukaPin('XI-C')"><div class="kunci">🔒</div><div class="nama-kelas">XI-C</div><div class="jurusan">AKL</div></div>
-        <div class="kartu-kelas" onclick="bukaPin('XI-D')"><div class="kunci">🔒</div><div class="nama-kelas">XI-D</div><div class="jurusan">BDP</div></div>
-      </div>
-
-      <div class="angkatan-judul">Kelas X</div>
-      <div class="grid-kelas">
-        <div class="kartu-kelas" onclick="bukaPin('X-A')"><div class="kunci">🔒</div><div class="nama-kelas">X-A</div><div class="jurusan">RPL</div></div>
-        <div class="kartu-kelas" onclick="bukaPin('X-B')"><div class="kunci">🔒</div><div class="nama-kelas">X-B</div><div class="jurusan">TKJ</div></div>
-        <div class="kartu-kelas" onclick="bukaPin('X-C')"><div class="kunci">🔒</div><div class="nama-kelas">X-C</div><div class="jurusan">AKL</div></div>
-        <div class="kartu-kelas" onclick="bukaPin('X-D')"><div class="kunci">🔒</div><div class="nama-kelas">X-D</div><div class="jurusan">BDP</div></div>
-      </div>
-
-      <div style="text-align:center;margin-top:30px;font-size:11px;color:var(--abu-tua)">KasKu · Data tersimpan di perangkat ini · Privasi terjaga 🔒</div>
-    </div>
-  </div>
-  
-  <script src="js/pin.js"></script>
-  
-  <script>
-    // Sapaan nama user dari localStorage
-    document.addEventListener("DOMContentLoaded", () => {
-      const namaUser = localStorage.getItem('namaUser');
-      if (namaUser) {
-        document.getElementById('teks-selamat-datang').textContent = `👋 Halo, ${namaUser}!`;
-      }
-    });
-  </script>
 </body>
 </html>

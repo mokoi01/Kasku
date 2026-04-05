@@ -33,21 +33,37 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function resetPin(btn) {
   const row = btn.closest('tr');
-  const pinSpan = row.querySelector('span[style*="letter-spacing"]');
-  
-  if (pinSpan) {
-    const newPin = Math.floor(1000 + Math.random() * 9000);
-    pinSpan.textContent = newPin;
+  const kelas = row.children[0].innerText.trim(); // contoh: XII-A
 
-    const teksAwal = btn.textContent;
-    btn.textContent = '✅ Berhasil';
-    btn.classList.replace('btn-abu', 'btn-hijau');
-    
-    setTimeout(() => {
-      btn.textContent = teksAwal;
-      btn.classList.replace('btn-hijau', 'btn-abu');
-    }, 1500);
-  }
+  fetch('reset_pin.php', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({ kelas: kelas })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      const pinSpan = row.querySelector('span[style*="letter-spacing"]');
+      pinSpan.textContent = data.pin;
+
+      const teksAwal = btn.textContent;
+      btn.textContent = '✅ Berhasil';
+      btn.classList.replace('btn-abu', 'btn-hijau');
+
+      setTimeout(() => {
+        btn.textContent = teksAwal;
+        btn.classList.replace('btn-hijau', 'btn-abu');
+      }, 1500);
+    } else {
+      alert("Gagal reset PIN");
+    }
+  })
+  .catch(err => {
+    console.error(err);
+    alert("Error koneksi ke server");
+  });
 }
 
 function logoutAdmin() {

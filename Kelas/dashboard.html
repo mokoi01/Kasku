@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KasKu - Dashboard Kelas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <div class="layout">
+    <nav class="sidebar">
+      <div class="logo-sidebar">
+        <h2>💰 KasKu</h2>
+        <p id="label-kelas-sidebar">Kelas XII-A</p>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-label">Menu Utama</div>
+        <button class="nav-btn aktif" onclick="tampilSub('sub-ringkasan', this)">📊 Ringkasan</button>
+        <button class="nav-btn" onclick="tampilSub('sub-iuran', this)">✅ Input Iuran</button>
+        <button class="nav-btn" onclick="tampilSub('sub-pengeluaran', this)">🛒 Pengeluaran</button>
+        <button class="nav-btn" onclick="tampilSub('sub-riwayat', this)">📋 Riwayat</button>
+      </div>
+
+      <div class="nav-group">
+        <div class="nav-label">Lainnya</div>
+        <button class="nav-btn" onclick="tampilSub('sub-siswa', this)">👤 Data Siswa</button>
+      </div>
+
+      <div class="sidebar-bawah">
+        <div class="user-info">
+          <div class="user-avatar">👤</div>
+          <div>
+            <div class="user-nama" id="nama-user-sidebar">Pengguna Kelas</div>
+            <div class="user-role" id="role-sidebar">XII-A</div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="konten-utama">
+      <div class="topbar">
+        <h3 id="judul-topbar">Ringkasan Kas</h3>
+        <div class="topbar-kanan">
+          <button class="btn btn-abu btn-sm" onclick="window.location.href='pilih_kelas.html'">← Ganti Kelas</button>
+        </div>
+      </div>
+
+      <!-- ================= RINGKASAN ================= -->
+      <div id="sub-ringkasan" class="isi">
+        <div class="baris-stat">
+          <div class="stat-kartu biru">
+            <div class="stat-ikon">💰</div>
+            <div class="stat-label">Saldo Sekarang</div>
+            <div class="stat-nilai" id="saldo">Rp 0</div>
+          </div>
+
+          <div class="stat-kartu hijau">
+            <div class="stat-ikon">✅</div>
+            <div class="stat-label">Sudah Bayar</div>
+            <div class="stat-nilai" id="sudah">0 / 0</div>
+          </div>
+
+          <div class="stat-kartu merah">
+            <div class="stat-ikon">⏳</div>
+            <div class="stat-label">Belum Bayar</div>
+            <div class="stat-nilai" id="belum">0 siswa</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ================= IURAN ================= -->
+      <div id="sub-iuran" class="isi" style="display:none">
+        <div class="tabel-wrap">
+          <table class="checklist-tabel">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nama Siswa</th>
+                <th>Total</th>
+                <th>Aksi</th>
+              </tr>
+            </thead>
+            <tbody id="tabel-siswa"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ================= PENGELUARAN ================= -->
+      <div id="sub-pengeluaran" class="isi" style="display:none">
+        <div class="kartu">
+          <h4>📝 Catat Pengeluaran</h4>
+
+          <input type="text" id="desk" placeholder="Nama pengeluaran">
+          <input type="number" id="nominal" placeholder="Jumlah">
+
+          <button onclick="tambahPengeluaran()">Simpan</button>
+        </div>
+
+        <div class="tabel-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Tanggal</th>
+                <th>Keterangan</th>
+                <th>Jumlah</th>
+              </tr>
+            </thead>
+            <tbody id="tabel-pengeluaran"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ================= RIWAYAT ================= -->
+      <div id="sub-riwayat" class="isi" style="display:none">
+        <div class="tabel-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Tanggal</th>
+                <th>Jenis</th>
+                <th>Nominal</th>
+              </tr>
+            </thead>
+            <tbody id="tabel-riwayat"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- ================= DATA SISWA ================= -->
+      <div id="sub-siswa" class="isi" style="display:none">
+        <div class="tabel-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nama</th>
+                <th>Total Bayar</th>
+              </tr>
+            </thead>
+            <tbody id="tabel-siswa-data"></tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>
